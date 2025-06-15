@@ -2,7 +2,7 @@
 
 Sebuah aplikasi web interaktif yang dibuat dengan Streamlit untuk menyelesaikan masalah *Linear Programming* (LP) menggunakan metode Simplex. Aplikasi ini menyediakan solusi optimal untuk masalah alokasi sumber daya dan perencanaan produksi.
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://URL_APLIKASI_STREAMLIT_ANDA.streamlit.app/)  ![Screenshot Aplikasi](https://i.imgur.com/K5aN0P4.png) 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://or-casestudy-solver.streamlit.app/)  ![Screenshot Aplikasi](https://i.ibb.co/SwrKyPR8/OR-Case-Study-Solver-App-Screenshot.jpg) 
 
 ## ✨ Fitur Utama
 
@@ -12,6 +12,7 @@ Sebuah aplikasi web interaktif yang dibuat dengan Streamlit untuk menyelesaikan 
     - **Problem 13.8-9**: Alokasi Sumber Daya (Maksimalkan Output dengan Batasan Anggaran)
 - **Visualisasi Hasil**: Hasil optimisasi ditampilkan dalam bentuk tabel dan grafik (bar chart & pie chart) yang mudah dipahami menggunakan Plotly.
 - **Antarmuka Modern**: UI yang bersih dan responsif dengan tema gelap dan CSS kustom.
+- **Dukungan Multi-bahasa**: Beralih antara Bahasa Inggris dan Bahasa Indonesia dengan mudah langsung dari sidebar.
 
 ## 🛠️ Teknologi yang Digunakan
 
@@ -25,7 +26,7 @@ Untuk menjalankan aplikasi ini di komputer Anda, ikuti langkah-langkah berikut:
 
 1.  **Clone repositori ini:**
     ```bash
-    git clone [https://github.com/NAMA_USER_ANDA/NAMA_REPOSITORI_ANDA.git](https://github.com/NAMA_USER_ANDA/NAMA_REPOSITORI_ANDA.git)
+    git clone https://github.com/muhammadgymnas/or-casestudy-solver.git
     cd NAMA_REPOSITORI_ANDA
     ```
 
