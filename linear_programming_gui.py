@@ -403,11 +403,12 @@ TEXTS = {
 }
 
 # Enhanced Custom CSS with better typography and layout
+# Enhanced Custom CSS with improved font contrast
 st.markdown("""
 <style>
     /* Import fonts */
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
-    }
+    
     /* Root variables for consistent theming */
     :root {
         --primary-color: #667eea;
@@ -416,8 +417,9 @@ st.markdown("""
         --success-color: #10b981;
         --warning-color: #f59e0b;
         --error-color: #ef4444;
-        --text-primary: #f9fafb;
-        --text-secondary: #d1d5db;
+        --text-primary: #ffffff;
+        --text-secondary: #e5e7eb;
+        --text-muted: #9ca3af;
         --bg-primary: #1f2937;
         --bg-secondary: #111827;
         --border-color: #374151;
@@ -442,7 +444,7 @@ st.markdown("""
         color: var(--text-primary);
     }
     
-    /* Headers with better hierarchy */
+    /* Headers with better hierarchy and improved contrast */
     h1, h2, h3, h4, h5, h6 {
         font-weight: 600;
         line-height: 1.3;
@@ -450,12 +452,12 @@ st.markdown("""
         color: var(--text-primary);
     }
     
-    h1 { font-size: 2.5rem; font-weight: 700; }
-    h2 { font-size: 2rem; font-weight: 600; }
-    h3 { font-size: 1.75rem; font-weight: 600; }
-    h4 { font-size: 1.5rem; font-weight: 600; }
-    h5 { font-size: 1.25rem; font-weight: 500; }
-    h6 { font-size: 1.125rem; font-weight: 500; }
+    h1 { font-size: 2.5rem; font-weight: 700; color: var(--text-primary); }
+    h2 { font-size: 2rem; font-weight: 600; color: var(--text-primary); }
+    h3 { font-size: 1.75rem; font-weight: 600; color: var(--text-primary); }
+    h4 { font-size: 1.5rem; font-weight: 600; color: var(--text-primary); }
+    h5 { font-size: 1.25rem; font-weight: 500; color: var(--text-secondary); }
+    h6 { font-size: 1.125rem; font-weight: 500; color: var(--text-secondary); }
     
     /* Enhanced main header */
     .main-header {
@@ -486,7 +488,7 @@ st.markdown("""
         font-weight: 700;
         margin-bottom: var(--spacing-sm);
         text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        color: white;
+        color: #ffffff;
     }
     
     .main-header p {
@@ -494,7 +496,7 @@ st.markdown("""
         font-weight: 400;
         opacity: 0.95;
         margin: 0;
-        color: white;
+        color: #ffffff;
     }
     
     /* Enhanced problem cards */
@@ -556,11 +558,11 @@ st.markdown("""
         margin-bottom: 0;
     }
     
-    /* Enhanced alerts */
+    /* Enhanced alerts with better contrast */
     .success-alert {
-        background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
-        border: 2px solid rgba(16, 185, 129, 0.2);
-        color: #065f46;
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(16, 185, 129, 0.08) 100%);
+        border: 2px solid rgba(16, 185, 129, 0.3);
+        color: #ffffff;
         padding: var(--spacing-lg);
         border-radius: var(--border-radius);
         margin: var(--spacing-lg) 0;
@@ -570,9 +572,9 @@ st.markdown("""
     }
     
     .error-alert {
-        background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(239, 68, 68, 0.05) 100%);
-        border: 2px solid rgba(239, 68, 68, 0.2);
-        color: #7f1d1d;
+        background: linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(239, 68, 68, 0.08) 100%);
+        border: 2px solid rgba(239, 68, 68, 0.3);
+        color: #ffffff;
         padding: var(--spacing-lg);
         border-radius: var(--border-radius);
         margin: var(--spacing-lg) 0;
@@ -636,6 +638,8 @@ st.markdown("""
         font-size: 1rem;
         font-weight: 500;
         transition: all 0.2s ease;
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
     }
     
     .stNumberInput > div > div > input:focus {
@@ -653,7 +657,7 @@ st.markdown("""
     
     .stDataFrame thead th {
         background-color: var(--primary-color);
-        color: white;
+        color: #ffffff;
         font-weight: 600;
         font-size: 1rem;
         padding: var(--spacing-md);
@@ -674,6 +678,7 @@ st.markdown("""
         font-weight: 500;
         padding: var(--spacing-sm) var(--spacing-md);
         border-bottom: 1px solid var(--border-color);
+        color: var(--text-secondary);
     }
 
     /* Enhanced metrics */
@@ -715,13 +720,45 @@ st.markdown("""
         border-bottom: 3px solid var(--primary-color);
         display: inline-block;
     }
-    /* Input sub-headers */
+    
+    /* Input sub-headers with better contrast */
     h5 {
         font-size: 1.1rem;
         font-weight: 600;
         color: var(--text-secondary);
         margin-top: 1.5rem;
         margin-bottom: 0.75rem;
+    }
+
+    /* Enhanced paragraph and text contrast */
+    p {
+        color: var(--text-secondary);
+    }
+    
+    /* Streamlit specific text improvements */
+    .stMarkdown p {
+        color: var(--text-secondary);
+    }
+    
+    .stMarkdown strong {
+        color: var(--text-primary);
+        font-weight: 600;
+    }
+    
+    /* Enhanced selectbox and other inputs */
+    .stSelectbox > div > div {
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        border-color: var(--border-color);
+    }
+    
+    /* Enhanced radio buttons */
+    .stRadio > div {
+        color: var(--text-secondary);
+    }
+    
+    .stRadio label {
+        color: var(--text-secondary) !important;
     }
 
     /* Responsive improvements */
