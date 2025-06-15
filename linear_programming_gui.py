@@ -43,6 +43,15 @@ TEXTS = {
         "id": "📚 Metode",
         "en": "📚 Methods"
     },
+    "p1_guide_header": {
+        "id": "📖 Panduan Penggunaan - Perencanaan Produksi",
+        "en": "📖 User Guide - Production Planning"
+    },
+    "p2_guide_header": {
+        "id": "📖 Panduan Penggunaan - Alokasi Sumber Daya",
+        "en": "📖 User Guide - Resource Allocation"
+    },
+
     "p1_guide_content": {
         "id": """
     Panduan ini membantu Anda memahami cara menggunakan solver untuk masalah perencanaan produksi.
