@@ -298,16 +298,16 @@ TEXTS = {
         "en": "Problem Summary"
     },
     "summary_vars": {
-        "id": "Variabel",
-        "en": "Variables"
+        "id": "Variabel Keputusan",
+        "en": "Decision Variables"
     },
     "summary_constraints": {
-        "id": "Batasan",
-        "en": "Constraints"
+        "id": "Batasan Pertidaksamaan",
+        "en": "Inequality Constraints"
     },
     "summary_bounds": {
-        "id": "Batas",
-        "en": "Bounds"
+        "id": "Batasan Kapasitas",
+        "en": "Capacity Limitations"
     },
     "summary_objective": {
         "id": "Tujuan",
@@ -323,7 +323,8 @@ st.markdown("""
     .main-header { background: linear-gradient(90deg, #667eea 0%, #764ba2 100%); padding: 2rem; border-radius: 10px; color: white; text-align: center; margin-bottom: 2rem; }
     .problem-card { background: #FFFFFF; padding: 1.5rem; border-radius: 10px; border-left: 5px solid #667eea; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin: 1rem 0; color: #333; }
     .problem-card h2, .problem-card p { color: #333; }
-    .info-box { background: #f0f2f6; padding: 1rem; border-radius: 8px; border: 1px solid #dcdcdc; margin: 1rem 0; }
+    .info-box { background: #f0f2f6; padding: 1rem; border-radius: 8px; border: 1px solid #dcdcdc; margin: 1rem 0; color: #333;}
+    .info-box h4 {color: #333;}
     .metric-card { background: white; padding: 1rem; border-radius: 8px; border-left: 4px solid #667eea; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin: 0.5rem 0; }
     .success-alert { background-color: #d4edda; border: 1px solid #c3e6cb; color: #155724; padding: 1rem; border-radius: 8px; margin: 1rem 0; }
     .error-alert { background-color: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; padding: 1rem; border-radius: 8px; margin: 1rem 0; }
@@ -334,7 +335,6 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 def get_text(key):
-    """Helper function to get text based on the current language in session state."""
     lang = st.session_state.get('lang', 'id')
     return TEXTS[key][lang]
 
@@ -448,9 +448,9 @@ def problem_13_8_5():
     st.markdown('<div class="separator"></div>', unsafe_allow_html=True)
     st.markdown(f"## {get_text('solve_optimization_header')}")
     
-    solve_col, _, _ = st.columns([1, 1, 1])
+    _, solve_col, _ = st.columns([1, 2, 1])
     with solve_col:
-        if st.button(get_text('p1_solve_button'), key="solve_13_8_5", use_container_width=True):
+        if st.button(get_text('p1_solve_button'), key="solve_13_8_5"):
             result = linprog(-np.array(obj_coeffs), A_ub=[constraint1_coeffs, constraint2_coeffs], b_ub=[b1, b2], bounds=bounds, method='highs')
             display_results_13_8_5(result, variables, obj_coeffs, [constraint1_coeffs, constraint2_coeffs], [b1, b2], bounds)
 
@@ -506,9 +506,9 @@ def problem_13_8_9():
     st.markdown('<div class="separator"></div>', unsafe_allow_html=True)
     st.markdown(f"## {get_text('solve_optimization_header')}")
     
-    solve_col, _, _ = st.columns([1, 1, 1])
+    _, solve_col, _ = st.columns([1, 2, 1])
     with solve_col:
-        if st.button(get_text('p2_solve_button'), key="solve_13_8_9", use_container_width=True):
+        if st.button(get_text('p2_solve_button'), key="solve_13_8_9"):
             result = linprog(-np.array(obj_coeffs), A_ub=[cost_coeffs], b_ub=[cost_limit], bounds=bounds, method='highs')
             display_results_13_8_9(result, variables, obj_coeffs, cost_coeffs, cost_limit, bounds)
 
@@ -531,9 +531,8 @@ def display_results_13_8_5(result, variables, obj_coeffs, A_ub, b_ub, bounds):
         with row2_col2:
             st.metric(get_text('p1_metric_c2'), f"{(constraint_usage[1] / b_ub[1]) * 100:.1f}%")
         
-        st.markdown("---")
-        res_col1, res_col2 = st.columns(2)
-        with res_col1:
+        col1, col2 = st.columns([1, 1])
+        with col1:
             st.markdown(f"### {get_text('optimal_vars_header')}")
             results_df = pd.DataFrame({
                 get_text('df_variable_col'): variables,
@@ -553,7 +552,7 @@ def display_results_13_8_5(result, variables, obj_coeffs, A_ub, b_ub, bounds):
             })
             st.dataframe(constraint_df, use_container_width=True, hide_index=True)
         
-        with res_col2:
+        with col2:
             fig1 = px.bar(x=[var.split(' ')[0] for var in variables], y=result.x, title=get_text('p1_chart1_title'), labels={'x': get_text('chart_vars_label'), 'y': get_text('chart_units_label')}, color=result.x, color_continuous_scale="viridis")
             st.plotly_chart(fig1, use_container_width=True)
             
@@ -589,10 +588,9 @@ def display_results_13_8_9(result, variables, obj_coeffs, cost_coeffs, cost_limi
             st.metric(get_text('p2_metric_budget_usage'), f"{budget_utilization:.1f}%")
         with row2_col2:
             st.metric(get_text('p2_metric_rem_budget'), f"${remaining_budget:,.2f}")
-
-        st.markdown("---")
-        res_col1, res_col2 = st.columns(2)
-        with res_col1:
+        
+        col1, col2 = st.columns([1, 1])
+        with col1:
             st.markdown(f"### {get_text('optimal_vars_header')}")
             results_df = pd.DataFrame({
                 get_text('df_variable_col'): variables,
@@ -610,7 +608,7 @@ def display_results_13_8_9(result, variables, obj_coeffs, cost_coeffs, cost_limi
             })
             st.dataframe(budget_df, use_container_width=True, hide_index=True)
 
-        with res_col2:
+        with col2:
             fig1 = px.bar(x=[var.split(' ')[0] for var in variables], y=result.x, title=get_text('p2_chart1_title'), labels={'x': get_text('chart_vars_label'), 'y': get_text('chart_resources_label')}, color=result.x, color_continuous_scale="plasma")
             st.plotly_chart(fig1, use_container_width=True)
             
