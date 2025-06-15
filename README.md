@@ -58,4 +58,4 @@ Aplikasi ini siap untuk di-deploy.
 6.  Klik **"Deploy!"** dan aplikasi Anda akan online dalam beberapa menit.
 
 ---
-*Dibuat dengan ❤️ oleh [Nama Anda]*
+*Dibuat dengan ❤️ oleh muhammadgymnas*
