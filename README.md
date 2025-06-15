@@ -2,7 +2,9 @@
 
 Sebuah aplikasi web interaktif yang dibuat dengan Streamlit untuk menyelesaikan masalah *Linear Programming* (LP) menggunakan metode Simplex. Aplikasi ini menyediakan solusi optimal untuk masalah alokasi sumber daya dan perencanaan produksi.
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://URL_APLIKASI_STREAMLIT_ANDA.streamlit.app/)  ![Screenshot Aplikasi](https://i.imgur.com/K5aN0P4.png) ## ✨ Fitur Utama
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://URL_APLIKASI_STREAMLIT_ANDA.streamlit.app/)  ![Screenshot Aplikasi](https://i.imgur.com/K5aN0P4.png) 
+
+## ✨ Fitur Utama
 
 - **Solver Interaktif**: Ubah parameter input seperti koefisien fungsi tujuan, batasan, dan kapasitas secara *real-time*.
 - **Dua Model LP**: Menyelesaikan dua studi kasus:
