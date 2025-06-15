@@ -407,7 +407,7 @@ st.markdown("""
 <style>
     /* Import fonts */
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
-    
+    }
     /* Root variables for consistent theming */
     :root {
         --primary-color: #667eea;
@@ -416,11 +416,11 @@ st.markdown("""
         --success-color: #10b981;
         --warning-color: #f59e0b;
         --error-color: #ef4444;
-        --text-primary: #1f2937;
-        --text-secondary: #6b7280;
-        --bg-primary: #ffffff;
-        --bg-secondary: #f8fafc;
-        --border-color: #e5e7eb;
+        --text-primary: #f9fafb;
+        --text-secondary: #d1d5db;
+        --bg-primary: #1f2937;
+        --bg-secondary: #111827;
+        --border-color: #374151;
         --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
         --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
         --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
@@ -459,7 +459,7 @@ st.markdown("""
     
     /* Enhanced main header */
     .main-header {
-        background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
         padding: var(--spacing-2xl);
         border-radius: var(--border-radius);
         color: white;
@@ -499,7 +499,7 @@ st.markdown("""
     
     /* Enhanced problem cards */
     .problem-card {
-        background: var(--bg-primary);
+        background: var(--bg-secondary);
         padding: var(--spacing-xl);
         border-radius: var(--border-radius);
         border-left: 6px solid var(--primary-color);
@@ -582,6 +582,10 @@ st.markdown("""
     }
     
     /* Enhanced buttons */
+    div.stButton {
+        margin-top: 1.5rem;
+    }
+    
     .stButton > button {
         background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
         color: white;
@@ -705,12 +709,21 @@ st.markdown("""
         font-size: 1.75rem;
         font-weight: 600;
         color: var(--text-primary);
-        margin: var(--spacing-xl) 0 var(--spacing-lg) 0;
+        margin-top: var(--spacing-xl);
+        margin-bottom: var(--spacing-lg);
         padding-bottom: var(--spacing-sm);
         border-bottom: 3px solid var(--primary-color);
         display: inline-block;
     }
-    
+    /* Input sub-headers */
+    h5 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text-secondary);
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+    }
+
     /* Responsive improvements */
     @media (max-width: 768px) {
         .main-header h1 {
