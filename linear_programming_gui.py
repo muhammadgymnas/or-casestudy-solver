@@ -328,7 +328,7 @@ st.markdown("""
     .metric-card { background: white; padding: 1rem; border-radius: 8px; border-left: 4px solid #667eea; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin: 0.5rem 0; }
     .success-alert { background-color: #d4edda; border: 1px solid #c3e6cb; color: #155724; padding: 1rem; border-radius: 8px; margin: 1rem 0; }
     .error-alert { background-color: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; padding: 1rem; border-radius: 8px; margin: 1rem 0; }
-    .stButton > button { background: linear-gradient(90deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; padding: 0.5rem 2rem; font-weight: bold; transition: all 0.3s ease; width: 100%; font-family: 'Inter', sans-serif; }
+    .stButton > button { background: linear-gradient(90deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; padding: 0.75rem 2rem; font-size: 1.1rem; font-weight: bold; transition: all 0.3s ease; width: 100%; font-family: 'Inter', sans-serif; }
     .stButton > button:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
     .separator { border-top: 3px solid #667eea; margin: 2rem 0; border-radius: 2px; }
 </style>
@@ -562,7 +562,7 @@ def display_results_13_8_5(result, variables, obj_coeffs, A_ub, b_ub, bounds):
 
         st.markdown(f"### {get_text('p1_interpretation_title')}")
         interpretation = get_text('p1_interpretation_text').format(profit=-result.fun, val1=result.x[0], val3=result.x[2])
-        st.markdown(f"<div class='success-alert' style='background-color: #e6ffed; border-left: 5px solid #28a745;'>{interpretation}</div>", unsafe_allow_html=True)
+        st.success(interpretation, icon="💡")
         
     else:
         st.markdown(f"<div class='error-alert'>{get_text('error_message')} {result.message}</div>", unsafe_allow_html=True)
@@ -618,7 +618,7 @@ def display_results_13_8_9(result, variables, obj_coeffs, cost_coeffs, cost_limi
 
         st.markdown(f"### {get_text('p2_interpretation_title')}")
         interpretation = get_text('p2_interpretation_text').format(val4=result.x[3], usage=budget_utilization)
-        st.markdown(f"<div class='success-alert' style='background-color: #e6ffed; border-left: 5px solid #28a745;'>{interpretation}</div>", unsafe_allow_html=True)
+        st.success(interpretation, icon="💡")
         
     else:
         st.markdown(f"<div class='error-alert'>{get_text('error_message')} {result.message}</div>", unsafe_allow_html=True)
