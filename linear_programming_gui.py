@@ -43,6 +43,92 @@ TEXTS = {
         "id": "📚 Metode",
         "en": "📚 Methods"
     },
+    "p1_guide_content": {
+        "id": """
+    Panduan ini membantu Anda memahami cara menggunakan solver untuk masalah perencanaan produksi.
+
+    #### **1. Pahami Tujuan & Variabel**
+    - **Tujuan**: Memaksimalkan total profit dari semua unit yang diproduksi.
+    - **Variabel Keputusan**:
+        - `x₁₁ (Gergaji Reg)`: Jumlah unit yang diproduksi mesin gergaji pada waktu reguler.
+        - `x₁₂ (Gergaji OT)`: Jumlah unit yang diproduksi mesin gergaji pada waktu lembur.
+        - `x₂₁ (Bor Reg)`: Jumlah unit yang diproduksi mesin bor pada waktu reguler.
+        - `x₂₂ (Bor OT)`: Jumlah unit yang diproduksi mesin bor pada waktu lembur.
+
+    #### **2. Atur Parameter Input**
+    - **Fungsi Tujuan**: Masukkan nilai profit yang didapat dari setiap unit produk.
+    - **Batasan**: Definisikan batasan sumber daya yang tersedia.
+    - **Batasan Variabel**: Masukkan kapasitas produksi maksimal untuk setiap jenis proses.
+
+    #### **3. Selesaikan dan Analisis**
+    1. Setelah semua parameter sesuai, klik tombol **Selesaikan Masalah Produksi**.
+    2. Hasilnya akan muncul di bawah, menunjukkan alokasi produksi optimal untuk profit maksimal.
+    """,
+        "en": """
+    This guide helps you understand how to use the solver for the production planning problem.
+
+    #### **1. Understand the Goal & Variables**
+    - **Goal**: To maximize the total profit from all units produced.
+    - **Decision Variables**:
+        - `x₁₁ (Gergaji Reg)`: Number of units produced by the saw during regular time.
+        - `x₁₂ (Gergaji OT)`: Number of units produced by the saw during overtime.
+        - `x₂₁ (Bor Reg)`: Number of units produced by the drill during regular time.
+        - `x₂₂ (Bor OT)`: Number of units produced by the drill during overtime.
+
+    #### **2. Set the Input Parameters**
+    - **Objective Function**: Enter the profit value gained from each product unit.
+    - **Constraints**: Define the resource limitations.
+    - **Variable Bounds**: Input the maximum capacity for each specific production type.
+
+    #### **3. Solve and Analyze**
+    1. After all parameters are set, click the **Solve Production Problem** button.
+    2. The results will appear below, showing the optimal production plan for maximum profit.
+    """
+    },
+    "p2_guide_content": {
+        "id": """
+    Panduan ini membantu Anda menggunakan solver untuk masalah alokasi sumber daya.
+
+    #### **1. Pahami Tujuan & Variabel**
+    - **Tujuan**: Memaksimalkan total output (jumlah total unit) dari kedua produk.
+    - **Variabel Keputusan**:
+        - `x₁ᴿ (Reguler P1)`: Unit Produk 1 (Waktu Reguler).
+        - `x₁ᴼ (Lembur P1)`: Unit Produk 1 (Lembur).
+        - `x₂ᴿ (Reguler P2)`: Unit Produk 2 (Waktu Reguler).
+        - `x₂ᴼ (Lembur P2)`: Unit Produk 2 (Lembur).
+
+    #### **2. Atur Parameter Input**
+    - **Fungsi Tujuan**: Koefisien `1` berarti setiap unit dihitung sama dalam total output.
+    - **Batasan Anggaran**: Definisikan biaya per unit dan total anggaran yang tersedia.
+    - **Batasan Kapasitas**: Masukkan batas produksi maksimal untuk setiap jenis produk.
+
+    #### **3. Selesaikan dan Analisis**
+    1. Pastikan semua nilai biaya, anggaran, dan kapasitas sudah benar.
+    2. Klik tombol **Selesaikan Masalah Alokasi**.
+    3. Hasilnya akan menunjukkan jumlah unit optimal untuk diproduksi agar total output maksimal sesuai anggaran.
+    """,
+        "en": """
+    This guide helps you use the solver for the resource allocation problem.
+
+    #### **1. Understand the Goal & Variables**
+    - **Goal**: To maximize the total output (total number of units) from both products.
+    - **Decision Variables**:
+        - `x₁ᴿ (Reguler P1)`: Units of Product 1 (Regular time).
+        - `x₁ᴼ (Lembur P1)`: Units of Product 1 (Overtime).
+        - `x₂ᴿ (Reguler P2)`: Units of Product 2 (Regular time).
+        - `x₂ᴼ (Lembur P2)`: Units of Product 2 (Overtime).
+
+    #### **2. Set the Input Parameters**
+    - **Objective Function**: The default coefficient of `1` means every unit contributes equally to the total output.
+    - **Budget Constraint**: Define the cost per unit and the total available budget.
+    - **Capacity Bounds**: Input the maximum production limit for each individual product type.
+
+    #### **3. Solve and Analyze**
+    1. Ensure all cost, budget, and capacity values are correct.
+    2. Click the **Solve Allocation Problem** button.
+    3. The results will show the optimal number of units to produce for maximum output within the budget.
+    """
+    },
     "input_parameters_header": {
         "id": "⚙️ Parameter Input",
         "en": "⚙️ Input Parameters"
@@ -708,7 +794,8 @@ def problem_13_8_5():
         <p><strong>{get_text('p1_desc')}</strong></p>
     </div>
     """, unsafe_allow_html=True)
-    
+    with st.expander(get_text('p1_guide_header')):
+        st.markdown(get_text('p1_guide_content'))    
     st.markdown(f'<h2 class="section-header">{get_text("input_parameters_header")}</h2>', unsafe_allow_html=True)
     
     col1, col2 = st.columns([2, 1])
@@ -779,7 +866,8 @@ def problem_13_8_9():
         <p><strong>{get_text('p2_desc')}</strong></p>
     </div>
     """, unsafe_allow_html=True)
-    
+    with st.expander(get_text('p2_guide_header')):
+        st.markdown(get_text('p2_guide_content'))    
     st.markdown(f'<h2 class="section-header">{get_text("input_parameters_header")}</h2>', unsafe_allow_html=True)
     
     col1, col2 = st.columns([2, 1])
